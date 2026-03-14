@@ -7,7 +7,7 @@ psi = psi0;
 // Re-initialization of level set function
 for (int corr=0; corr<int(epsilon.value()/deltaTau.value()); corr++)
 {
-   psi = psi + psi0/mag(psi0)*(double(1)-mag(fvc::grad(psi)*dimChange))*deltaTau;
+   psi = psi + psi0/(mag(psi0)+SMALL) * (double(1)-mag(fvc::grad(psi)*dimChange)) * deltaTau;
    psi.correctBoundaryConditions();
 }
 

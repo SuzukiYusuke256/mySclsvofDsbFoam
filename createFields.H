@@ -24,7 +24,7 @@ volScalarField psi
         "psi",
         runTime.timeName(),
         mesh,
-        IOobject::NO_READ,
+        IOobject::MUST_READ,
         IOobject::AUTO_WRITE
     ),
     mesh
@@ -52,11 +52,11 @@ volScalarField H
         "H",
         runTime.timeName(),
         mesh,
-        IOobject::NO_READ,
+        IOobject::MUST_READ,
         IOobject::AUTO_WRITE
     ),
-    mesh,
-    dimensionedScalar("H",dimless, 0.0)
+    mesh
+    //dimensionedScalar("H",dimless, 0.0)
 );
 
 // curvature
